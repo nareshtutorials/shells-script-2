@@ -1,0 +1,28 @@
+#!/bin/bash
+
+USERID=$(id -u)
+
+if [$USERID -ne 0]
+then
+    echo "pls run the script with root access"
+    exit 1 # manually exit if error comes
+fi #stop
+
+dnf install mysql -y
+if [$? -ne 0]
+then
+    echo "installation of sql is ...failover"
+else
+    echo "Installation of mysql ...success"
+
+fi
+
+dnf install git -y
+if [$? -ne 0]
+then
+    echo "Installation of git ...failover"
+else
+    echo "Installation of git ... success"
+fi
+
+echo "is script is proceeding?"
