@@ -12,7 +12,7 @@ y="\e[33m"
 echo "script started executed at:$TIMESTAMP"
 
 VALIDATE(){
-    if [$1 -ne 0]
+    if [ $1 -ne 0 ] 
     then
         echo -e "$2....$R Failure $N"
         exit 1
@@ -22,7 +22,7 @@ VALIDATE(){
     fi
 }
 
-if [$USERID -ne 0]
+if [ $USERID -ne 0 ]
 then
     echo "pls run the script with root access'
 else
@@ -33,3 +33,5 @@ VALIDATE $? "Installing mysql"
 
 dnf install git -y &>>$LOGFILE
 VALIDATE $? "Installing Git"
+
+
